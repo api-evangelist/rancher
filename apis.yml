@@ -1,11 +1,20 @@
 aid: rancher
 name: Rancher
 description: >-
-  Rancher is a complete software stack for managing containers and Kubernetes clusters across any infrastructure.
+  Rancher is an open source container management platform built by SUSE that
+  provides a complete software stack for teams adopting containers. It
+  simplifies Kubernetes cluster deployment and management across any
+  infrastructure, providing unified security, policy, and user management
+  across all clusters.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Containers
+  - Kubernetes
+  - Cluster Management
+  - Open Source
+  - SUSE
+  - Multi-Cluster
 url: >-
   https://raw.githubusercontent.com/api-evangelist/rancher/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -15,14 +24,39 @@ apis:
   - aid: rancher:rancher
     name: Rancher
     description: >-
-      Rancher is a complete software stack for managing containers and Kubernetes clusters across any infrastructure.
-    humanURL: https://github.com/api-evangelist/rancher
+      Rancher is a complete software stack for managing containers and
+      Kubernetes clusters across any infrastructure. It addresses the
+      operational and security challenges of managing multiple Kubernetes
+      clusters, providing DevOps teams with integrated tools for running
+      containerized workloads at scale.
+    humanURL: https://www.rancher.com/
     tags:
       - Containers
-    properties: []
+      - Kubernetes
+      - Cluster Management
+      - Open Source
+      - SUSE
+      - Multi-Cluster
+    properties:
+      - type: Documentation
+        url: https://ranchermanager.docs.rancher.com/
+      - type: Getting Started
+        url: https://ranchermanager.docs.rancher.com/getting-started/overview
 common:
   - type: Website
-    url: https://github.com/api-evangelist/rancher
+    url: https://www.rancher.com/
+  - type: Documentation
+    url: https://ranchermanager.docs.rancher.com/
+  - type: GitHub Organization
+    url: https://github.com/rancher
+  - type: GitHub Repository
+    url: https://github.com/rancher/rancher
+  - type: Blog
+    url: https://www.suse.com/c/rancher/
+  - type: Pricing
+    url: https://www.rancher.com/pricing
+  - type: Sign Up
+    url: https://www.rancher.com/quick-start
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
