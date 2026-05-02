@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rancher/refs/heads/main/json-schema/rancher-project.json",
+  "title": "Rancher Project",
+  "description": "Schema describing a Rancher project, which groups namespaces within a cluster for tenancy and policy.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "clusterId": { "type": "string" },
+    "description": { "type": "string" },
+    "resourceQuota": { "type": "object" },
+    "namespaceDefaultResourceQuota": { "type": "object" }
+  },
+  "required": ["name", "clusterId"]
+}

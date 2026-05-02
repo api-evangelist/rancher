@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rancher/refs/heads/main/json-schema/rancher-cluster.json",
+  "title": "Rancher Cluster",
+  "description": "Schema describing a downstream Kubernetes cluster managed by Rancher.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "description": "Rancher-assigned cluster identifier (for example, c-m-xxxxxxxx)." },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "kubernetesVersion": { "type": "string", "description": "Target Kubernetes version (for example, v1.30.5)." },
+    "provider": { "type": "string", "description": "Provisioning provider such as rke, rke2, k3s, eks, gke, aks, or imported." },
+    "driver": { "type": "string" },
+    "state": { "type": "string", "enum": ["provisioning", "active", "updating", "error", "removing"] },
+    "internal": { "type": "boolean" }
+  },
+  "required": ["id", "name"]
+}

@@ -1,0 +1,26 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "rancher": "https://rancher.com/ns#",
+    "k8s": "https://kubernetes.io/docs/reference/#",
+    "Cluster": "rancher:Cluster",
+    "Project": "rancher:Project",
+    "Node": "rancher:Node",
+    "User": "rancher:User",
+    "Token": "rancher:Token",
+    "Catalog": "rancher:Catalog",
+    "App": "rancher:App",
+    "RoleTemplate": "rancher:RoleTemplate",
+    "id": "@id",
+    "type": "@type",
+    "name": "schema:name",
+    "description": "schema:description",
+    "clusterId": { "@id": "rancher:cluster", "@type": "@id" },
+    "kubernetesVersion": "rancher:kubernetesVersion",
+    "provider": "rancher:provider",
+    "state": "rancher:state",
+    "hostname": "schema:name",
+    "roles": "rancher:role"
+  }
+}
