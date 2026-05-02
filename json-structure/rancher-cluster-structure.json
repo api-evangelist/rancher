@@ -1,0 +1,14 @@
+{
+  "name": "Cluster",
+  "description": "A downstream Kubernetes cluster managed by Rancher.",
+  "fields": [
+    { "name": "id", "type": "string", "required": true, "description": "Rancher-assigned cluster identifier (e.g., c-m-xxxxxxxx or 'local')." },
+    { "name": "name", "type": "string", "required": true, "description": "Human-readable cluster name." },
+    { "name": "description", "type": "string", "required": false, "description": "Optional cluster description." },
+    { "name": "kubernetesVersion", "type": "string", "required": false, "description": "Kubernetes version (e.g., v1.30.5+rke2r1)." },
+    { "name": "provider", "type": "string", "required": false, "description": "Provisioning provider: rke, rke2, k3s, eks, gke, aks, or imported." },
+    { "name": "driver", "type": "string", "required": false, "description": "Cluster driver name." },
+    { "name": "state", "type": "string (enum)", "required": false, "description": "Cluster state: provisioning, active, updating, error, removing." },
+    { "name": "internal", "type": "boolean", "required": false, "description": "True if this is the local Rancher management cluster." }
+  ]
+}

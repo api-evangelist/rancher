@@ -1,0 +1,155 @@
+---
+name: Rancher Vocabulary
+description: >-
+  Domain vocabulary for the Rancher container management platform, covering Kubernetes
+  cluster lifecycle, multi-cluster management, project tenancy, RBAC, and Helm catalog
+  management.
+created: "2026-05-02"
+modified: "2026-05-02"
+tags:
+  - Kubernetes
+  - Cluster Management
+  - Containers
+  - Open Source
+
+terms:
+  - term: Cluster
+    definition: >-
+      A Kubernetes cluster managed through Rancher. Clusters can be provisioned by
+      Rancher (using RKE, RKE2, K3s, EKS, GKE, or AKS) or imported as existing clusters.
+      The local cluster is the Rancher management cluster itself.
+    synonyms:
+      - Kubernetes Cluster
+      - Downstream Cluster
+    related:
+      - Project
+      - Node
+      - Provider
+
+  - term: Local Cluster
+    definition: >-
+      The Kubernetes cluster on which Rancher itself runs. The local cluster is always
+      present and has the id 'local'. Rancher uses it to host the management plane.
+    related:
+      - Cluster
+
+  - term: Downstream Cluster
+    definition: >-
+      Any cluster other than the local cluster that is managed through Rancher. These
+      can run on-premises, in cloud providers, or be imported from existing infrastructure.
+    related:
+      - Cluster
+      - Provider
+
+  - term: Project
+    definition: >-
+      A Rancher organizational unit that groups one or more namespaces within a cluster.
+      Projects enable multi-tenancy by isolating resources, applying quotas, and
+      assigning role-based access to specific teams.
+    related:
+      - Cluster
+      - Namespace
+
+  - term: Namespace
+    definition: >-
+      A Kubernetes namespace associated with a Rancher project. All Kubernetes namespaces
+      within a cluster must be assigned to a Rancher project (or remain in the Default project).
+    related:
+      - Project
+      - Cluster
+
+  - term: Node
+    definition: >-
+      A physical or virtual machine participating in a Kubernetes cluster managed by Rancher.
+      Nodes carry roles: controlplane (runs the Kubernetes API server), etcd (stores cluster
+      state), and worker (runs workload pods).
+    synonyms:
+      - Worker Node
+      - Control Plane Node
+    related:
+      - Cluster
+      - Role
+
+  - term: Provisioner
+    definition: >-
+      The component or driver used to create and configure a cluster. Rancher supports
+      RKE (Rancher Kubernetes Engine), RKE2, K3s (lightweight Kubernetes), and managed
+      cloud providers (EKS, GKE, AKS).
+    synonyms:
+      - Provider
+      - Driver
+    related:
+      - Cluster
+
+  - term: RKE
+    definition: >-
+      Rancher Kubernetes Engine — Rancher's own Kubernetes installer that deploys
+      Kubernetes clusters using Docker containers on bare-metal or VMs. RKE1 and
+      RKE2 are distinct versions; RKE2 is hardened for security.
+    related:
+      - Cluster
+      - Provisioner
+
+  - term: K3s
+    definition: >-
+      A lightweight, certified Kubernetes distribution designed for edge, IoT, and
+      resource-constrained environments. K3s clusters can be provisioned and managed
+      through Rancher.
+    related:
+      - Cluster
+      - Provisioner
+
+  - term: Role Template
+    definition: >-
+      A reusable RBAC role definition in Rancher. Role templates can be applied to users
+      at the cluster level (ClusterRoleTemplateBinding) or project level (ProjectRoleTemplateBinding),
+      granting specific permissions.
+    synonyms:
+      - RBAC Role
+    related:
+      - User
+      - Cluster
+      - Project
+
+  - term: API Token
+    definition: >-
+      A bearer token used to authenticate API requests to Rancher. Tokens can be scoped
+      to a cluster or have global access, and may be configured to expire. Generated from
+      the Rancher UI or via the /v3/tokens endpoint.
+    synonyms:
+      - Bearer Token
+      - Access Token
+    related:
+      - User
+      - Authentication
+
+  - term: Catalog
+    definition: >-
+      A Helm chart repository registered with Rancher. Catalogs make Helm charts
+      available for deployment as Apps through the Rancher UI or API.
+    synonyms:
+      - Helm Catalog
+      - Chart Repository
+    related:
+      - App
+      - Helm
+
+  - term: App
+    definition: >-
+      A Helm chart deployment managed through Rancher. Apps are deployed into a
+      project/namespace combination and tracked by Rancher for upgrades and rollbacks.
+    synonyms:
+      - Helm Application
+      - Chart Deployment
+    related:
+      - Catalog
+      - Project
+
+  - term: Imported Cluster
+    definition: >-
+      An existing Kubernetes cluster that is registered with Rancher for management
+      without being provisioned by Rancher. A Rancher agent is deployed into the
+      cluster to establish the management connection.
+    related:
+      - Cluster
+      - Provisioner

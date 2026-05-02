@@ -1,0 +1,66 @@
+extends: spectral:oas
+rules:
+  rancher-operation-ids-camel-case:
+    description: All operationIds must use camelCase to match the Rancher Management API convention.
+    message: "OperationId '{{value}}' must be camelCase (e.g., listClusters, createCluster)."
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  rancher-tags-title-case:
+    description: All tags must use Title Case.
+    message: "Tag '{{value}}' must use Title Case."
+    severity: warn
+    given: "$.paths[*][*].tags[*]"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z ]*$"
+
+  rancher-bearer-auth-required:
+    description: All operations should use BearerAuth security scheme.
+    message: "Operation at '{{path}}' should specify BearerAuth security."
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: security
+      function: truthy
+
+  rancher-collection-responses:
+    description: Collection GET endpoints should return a typed collection with 'data' array.
+    message: "Collection endpoint should return an object with 'data' array following Rancher's collection pattern."
+    severity: hint
+    given: "$.paths[*].get.responses.200.content.application/json.schema"
+    then:
+      function: truthy
+
+  rancher-resource-ids-path-params:
+    description: Resource identifier path parameters should be named 'id'.
+    message: "Path parameter for resource identifier should be named 'id'."
+    severity: hint
+    given: "$.paths[*][*].parameters[?(@.in == 'path')]"
+    then:
+      field: name
+      function: truthy
+
+  rancher-delete-returns-204:
+    description: DELETE operations should return 204 No Content.
+    message: "DELETE operation at '{{path}}' should define a 204 response."
+    severity: warn
+    given: "$.paths[*].delete.responses"
+    then:
+      field: 204
+      function: truthy
+
+  rancher-no-trailing-slashes:
+    description: API paths must not end with a trailing slash.
+    message: "Path '{{path}}' must not end with a trailing slash."
+    severity: error
+    given: "$.paths"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/$"

@@ -1,0 +1,36 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://rancher.example.com/v3/clusters",
+    "headers": {
+      "Authorization": "Bearer token-abc123:secret456",
+      "Content-Type": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "type": "collection",
+      "data": [
+        {
+          "id": "local",
+          "name": "local",
+          "description": "Local Rancher management cluster",
+          "kubernetesVersion": "v1.30.5+rke2r1",
+          "provider": "rke2",
+          "state": "active",
+          "internal": true
+        },
+        {
+          "id": "c-m-k9b8g7f6",
+          "name": "production-eks",
+          "description": "Production workloads on EKS",
+          "kubernetesVersion": "v1.30.5",
+          "provider": "eks",
+          "state": "active",
+          "internal": false
+        }
+      ]
+    }
+  }
+}

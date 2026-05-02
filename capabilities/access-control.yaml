@@ -1,0 +1,123 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Rancher Access Control"
+  description: >-
+    Workflow capability for managing users, roles, tokens, and access policies in
+    Rancher. Enables platform administrators to provision users, assign role templates,
+    manage API tokens, and enforce RBAC across multi-cluster environments.
+  tags:
+    - Access Control
+    - RBAC
+    - Users
+    - Tokens
+    - Kubernetes
+    - Rancher
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      RANCHER_BEARER_TOKEN: RANCHER_BEARER_TOKEN
+      RANCHER_HOST: RANCHER_HOST
+
+capability:
+  consumes:
+    - import: rancher
+      location: ./shared/rancher-management-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8081
+      namespace: rancher-access-control-api
+      description: "Unified REST API for Rancher access control management."
+      resources:
+        - path: /v1/users
+          name: users
+          description: "Rancher user accounts."
+          operations:
+            - method: GET
+              name: list-users
+              description: "List all users."
+              call: "rancher.list-users"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/tokens
+          name: tokens
+          description: "API tokens."
+          operations:
+            - method: GET
+              name: list-tokens
+              description: "List all API tokens."
+              call: "rancher.list-tokens"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-token
+              description: "Create a new API token."
+              call: "rancher.create-token"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/role-templates
+          name: role-templates
+          description: "RBAC role templates."
+          operations:
+            - method: GET
+              name: list-role-templates
+              description: "List all role templates."
+              call: "rancher.list-role-templates"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9081
+      namespace: rancher-access-control-mcp
+      transport: http
+      description: "MCP server for AI-assisted access control management in Rancher."
+      tools:
+        - name: list-users
+          description: "List all Rancher users with their enabled status and login information."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "rancher.list-users"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-tokens
+          description: "List all API tokens issued in Rancher, including their expiry and description."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "rancher.list-tokens"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-token
+          description: "Create a new API token for programmatic access to the Rancher API."
+          hints:
+            readOnly: false
+            destructive: false
+          call: "rancher.create-token"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-role-templates
+          description: "List all RBAC role templates defining permissions across clusters and projects."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "rancher.list-role-templates"
+          outputParameters:
+            - type: object
+              mapping: "$."

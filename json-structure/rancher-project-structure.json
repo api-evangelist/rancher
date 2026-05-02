@@ -1,0 +1,10 @@
+{
+  "name": "Project",
+  "description": "A Rancher project grouping namespaces within a cluster for tenancy and policy.",
+  "fields": [
+    { "name": "id", "type": "string", "required": true, "description": "Project identifier in format clusterId:p-xxxxx." },
+    { "name": "name", "type": "string", "required": true, "description": "Project name." },
+    { "name": "clusterId", "type": "string", "required": true, "description": "Identifier of the cluster this project belongs to." },
+    { "name": "description", "type": "string", "required": false, "description": "Optional project description." }
+  ]
+}

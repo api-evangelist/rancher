@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://rancher.example.com/v3/projects",
+    "headers": {
+      "Authorization": "Bearer token-abc123:secret456",
+      "Content-Type": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "type": "collection",
+      "data": [
+        {
+          "id": "c-m-k9b8g7f6:p-abc123",
+          "name": "Default",
+          "clusterId": "c-m-k9b8g7f6",
+          "description": "Default project"
+        },
+        {
+          "id": "c-m-k9b8g7f6:p-def456",
+          "name": "System",
+          "clusterId": "c-m-k9b8g7f6",
+          "description": "System project"
+        }
+      ]
+    }
+  }
+}

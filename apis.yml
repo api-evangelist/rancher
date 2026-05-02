@@ -20,7 +20,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/rancher/refs/heads/main/apis.yml
 created: '2026-03-26'
-modified: '2026-04-28'
+modified: '2026-05-02'
 specificationVersion: '0.19'
 apis:
   - aid: rancher:rancher-management-api
@@ -59,6 +59,24 @@ apis:
         url: json-schema/rancher-node.json
       - type: JSONLD
         url: json-ld/rancher-context.jsonld
+      - type: JSONStructure
+        url: json-structure/rancher-cluster-structure.json
+      - type: JSONStructure
+        url: json-structure/rancher-project-structure.json
+      - type: JSONStructure
+        url: json-structure/rancher-node-structure.json
+      - type: Example
+        url: examples/rancher-list-clusters-example.json
+      - type: Example
+        url: examples/rancher-create-cluster-example.json
+      - type: Example
+        url: examples/rancher-list-projects-example.json
+      - type: SpectralRules
+        url: rules/rancher-rules.yml
+      - type: NaftikoCapabilities
+        url: capabilities/cluster-lifecycle.yaml
+      - type: NaftikoCapabilities
+        url: capabilities/access-control.yaml
 common:
   - type: Website
     url: https://www.rancher.com/
@@ -76,6 +94,8 @@ common:
     url: https://www.rancher.com/quick-start
   - type: Support
     url: https://www.rancher.com/support-maintenance-terms
+  - type: Vocabulary
+    url: vocabulary/rancher-vocabulary.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

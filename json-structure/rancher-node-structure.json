@@ -1,0 +1,16 @@
+{
+  "name": "Node",
+  "description": "A cluster node registered with Rancher.",
+  "fields": [
+    { "name": "id", "type": "string", "required": true, "description": "Unique node identifier." },
+    { "name": "clusterId", "type": "string", "required": false, "description": "Identifier of the cluster this node belongs to." },
+    { "name": "hostname", "type": "string", "required": false, "description": "Node hostname." },
+    { "name": "state", "type": "string", "required": false, "description": "Node state: active, draining, unavailable, etc." },
+    {
+      "name": "roles",
+      "type": "array<string>",
+      "required": false,
+      "description": "Node roles: controlplane, etcd, worker."
+    }
+  ]
+}

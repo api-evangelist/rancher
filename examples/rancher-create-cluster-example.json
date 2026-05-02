@@ -1,0 +1,28 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://rancher.example.com/v3/clusters",
+    "headers": {
+      "Authorization": "Bearer token-abc123:secret456",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "staging-rke2",
+      "description": "Staging environment cluster",
+      "kubernetesVersion": "v1.30.5+rke2r1",
+      "provider": "rke2"
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "c-m-n3p2q1r0",
+      "name": "staging-rke2",
+      "description": "Staging environment cluster",
+      "kubernetesVersion": "v1.30.5+rke2r1",
+      "provider": "rke2",
+      "state": "provisioning",
+      "internal": false
+    }
+  }
+}

@@ -21,7 +21,7 @@ Rancher is an open source container management platform built by SUSE that provi
 ## Timestamps
 
 - **Created:** 2026-03-26
-- **Modified:** 2026-04-28
+- **Modified:** 2026-05-02
 
 ## APIs
 
@@ -52,6 +52,30 @@ The Rancher Management API exposes Rancher's multi-cluster Kubernetes management
 - [JSONSchema](json-schema/rancher-project.json)
 - [JSONSchema](json-schema/rancher-node.json)
 - [JSONLD](json-ld/rancher-context.jsonld)
+- [JSONStructure](json-structure/rancher-cluster-structure.json)
+- [JSONStructure](json-structure/rancher-project-structure.json)
+- [JSONStructure](json-structure/rancher-node-structure.json)
+- [Example](examples/rancher-list-clusters-example.json)
+- [Example](examples/rancher-create-cluster-example.json)
+- [Example](examples/rancher-list-projects-example.json)
+- [SpectralRules](rules/rancher-rules.yml)
+- [NaftikoCapabilities](capabilities/cluster-lifecycle.yaml)
+- [NaftikoCapabilities](capabilities/access-control.yaml)
+
+## Capabilities
+
+### Shared Definitions
+
+| File | Description |
+|---|---|
+| [capabilities/shared/rancher-management-api.yaml](capabilities/shared/rancher-management-api.yaml) | Rancher Management API — 11 operations across clusters, projects, nodes, users, tokens, catalogs, apps, and role templates |
+
+### Workflow Capabilities
+
+| Capability | Description | Operations |
+|---|---|---|
+| [capabilities/cluster-lifecycle.yaml](capabilities/cluster-lifecycle.yaml) | Platform engineering workflow for cluster provisioning, health monitoring, and decommissioning | 7 tools |
+| [capabilities/access-control.yaml](capabilities/access-control.yaml) | Platform administrator workflow for user management, token management, and RBAC policy | 4 tools |
 
 ## Common Properties
 
@@ -63,6 +87,7 @@ The Rancher Management API exposes Rancher's multi-cluster Kubernetes management
 - [Pricing](https://www.rancher.com/pricing)
 - [Sign Up](https://www.rancher.com/quick-start)
 - [Support](https://www.rancher.com/support-maintenance-terms)
+- [Vocabulary](vocabulary/rancher-vocabulary.yml)
 
 ## Maintainers
 
