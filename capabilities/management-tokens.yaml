@@ -1,0 +1,95 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Rancher Management API — Tokens
+  description: 'Rancher Management API — Tokens. 2 operations. Lead operation: List tokens. Self-contained Naftiko capability
+    covering one Rancher business surface.'
+  tags:
+  - Rancher
+  - Tokens
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    RANCHER_API_KEY: RANCHER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: management-tokens
+    baseUri: https://{rancher_host}/v3
+    description: Rancher Management API — Tokens business capability. Self-contained, no shared references.
+    resources:
+    - name: tokens
+      path: /tokens
+      operations:
+      - name: listtokens
+        method: GET
+        description: List tokens
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtoken
+        method: POST
+        description: Create a token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.RANCHER_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: management-tokens-rest
+    port: 8080
+    description: REST adapter for Rancher Management API — Tokens. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/tokens
+      name: tokens
+      description: REST surface for tokens.
+      operations:
+      - method: GET
+        name: listtokens
+        description: List tokens
+        call: management-tokens.listtokens
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createtoken
+        description: Create a token
+        call: management-tokens.createtoken
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: management-tokens-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Rancher Management API — Tokens. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-tokens
+      description: List tokens
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: management-tokens.listtokens
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-token
+      description: Create a token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: management-tokens.createtoken
+      outputParameters:
+      - type: object
+        mapping: $.

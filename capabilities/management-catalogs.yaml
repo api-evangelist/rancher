@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Rancher Management API — Catalogs
+  description: 'Rancher Management API — Catalogs. 1 operations. Lead operation: List catalogs. Self-contained Naftiko capability
+    covering one Rancher business surface.'
+  tags:
+  - Rancher
+  - Catalogs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    RANCHER_API_KEY: RANCHER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: management-catalogs
+    baseUri: https://{rancher_host}/v3
+    description: Rancher Management API — Catalogs business capability. Self-contained, no shared references.
+    resources:
+    - name: catalogs
+      path: /catalogs
+      operations:
+      - name: listcatalogs
+        method: GET
+        description: List catalogs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.RANCHER_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: management-catalogs-rest
+    port: 8080
+    description: REST adapter for Rancher Management API — Catalogs. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/catalogs
+      name: catalogs
+      description: REST surface for catalogs.
+      operations:
+      - method: GET
+        name: listcatalogs
+        description: List catalogs
+        call: management-catalogs.listcatalogs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: management-catalogs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Rancher Management API — Catalogs. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-catalogs
+      description: List catalogs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: management-catalogs.listcatalogs
+      outputParameters:
+      - type: object
+        mapping: $.
