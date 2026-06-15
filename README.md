@@ -2,7 +2,7 @@
 
 Rancher is an open source container management platform built by SUSE that provides a complete software stack for teams adopting containers. It simplifies Kubernetes cluster deployment and management across any infrastructure, providing unified security, policy, and user management across all clusters. The Rancher Management API exposes these capabilities as Kubernetes-style REST resources for automation and platform engineering.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/rancher/refs/heads/main/apis.yml)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/rancher/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/rancher/refs/heads/main/apis.yml)
 
 ## Scope
 
@@ -21,7 +21,7 @@ Rancher is an open source container management platform built by SUSE that provi
 ## Timestamps
 
 - **Created:** 2026-03-26
-- **Modified:** 2026-05-02
+- **Modified:** 2026-05-19
 
 ## APIs
 
@@ -29,9 +29,8 @@ Rancher is an open source container management platform built by SUSE that provi
 
 The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It supports automation of cluster lifecycle, project and namespace management, user and access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. Authentication is via bearer tokens generated from the Rancher UI or via the login endpoint, and the API is reached through the Rancher server URL.
 
-**Human URL:** [https://ranchermanager.docs.rancher.com/api/quickstart](https://ranchermanager.docs.rancher.com/api/quickstart)
-
-**Base URL:** `https://{rancher_host}/v3`
+- **Human URL:** [https://ranchermanager.docs.rancher.com/api/quickstart](https://ranchermanager.docs.rancher.com/api/quickstart)
+- **Base URL:** `https://{rancher_host}/v3`
 
 #### Tags
 
@@ -46,39 +45,25 @@ The Rancher Management API exposes Rancher's multi-cluster Kubernetes management
 
 - [Documentation](https://ranchermanager.docs.rancher.com/)
 - [Getting Started](https://ranchermanager.docs.rancher.com/getting-started/overview)
-- [API Quick Start](https://ranchermanager.docs.rancher.com/api/quickstart)
-- [OpenAPI](openapi/rancher-management-api-openapi.yml)
-- [JSONSchema](json-schema/rancher-cluster.json)
-- [JSONSchema](json-schema/rancher-project.json)
-- [JSONSchema](json-schema/rancher-node.json)
-- [JSONLD](json-ld/rancher-context.jsonld)
-- [JSONStructure](json-structure/rancher-cluster-structure.json)
-- [JSONStructure](json-structure/rancher-project-structure.json)
-- [JSONStructure](json-structure/rancher-node-structure.json)
+- [A P I  Quick  Start](https://ranchermanager.docs.rancher.com/api/quickstart)
+- [OpenAPI](openapi/rancher-management-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/rancher-management-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rancher-management-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [JSON Schema](json-schema/rancher-cluster.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/rancher-project.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/rancher-node.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON-LD](json-ld/rancher-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+- [JSON Structure](json-structure/rancher-cluster-structure.json)
+- [JSON Structure](json-structure/rancher-project-structure.json)
+- [JSON Structure](json-structure/rancher-node-structure.json)
 - [Example](examples/rancher-list-clusters-example.json)
 - [Example](examples/rancher-create-cluster-example.json)
 - [Example](examples/rancher-list-projects-example.json)
-- [SpectralRules](rules/rancher-rules.yml)
-- [NaftikoCapabilities](capabilities/cluster-lifecycle.yaml)
-- [NaftikoCapabilities](capabilities/access-control.yaml)
-
-## Capabilities
-
-### Shared Definitions
-
-| File | Description |
-|---|---|
-| [capabilities/shared/rancher-management-api.yaml](capabilities/shared/rancher-management-api.yaml) | Rancher Management API — 11 operations across clusters, projects, nodes, users, tokens, catalogs, apps, and role templates |
-
-### Workflow Capabilities
-
-| Capability | Description | Operations |
-|---|---|---|
-| [capabilities/cluster-lifecycle.yaml](capabilities/cluster-lifecycle.yaml) | Platform engineering workflow for cluster provisioning, health monitoring, and decommissioning | 7 tools |
-| [capabilities/access-control.yaml](capabilities/access-control.yaml) | Platform administrator workflow for user management, token management, and RBAC policy | 4 tools |
+- [Spectral Rules](rules/rancher-rules.yml)
 
 ## Common Properties
 
+- [LinkedIn](https://www.linkedin.com/company/rancher)
 - [Website](https://www.rancher.com/)
 - [Documentation](https://ranchermanager.docs.rancher.com/)
 - [GitHub Organization](https://github.com/rancher)
@@ -92,5 +77,4 @@ The Rancher Management API exposes Rancher's multi-cluster Kubernetes management
 ## Maintainers
 
 **FN:** Kin Lane
-
 **Email:** kin@apievangelist.com
