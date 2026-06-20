@@ -6,7 +6,7 @@ description: >-
   providing unified security, policy, and user management across all clusters. The Rancher Management API exposes these
   capabilities as Kubernetes-style REST resources for automation and platform engineering.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Cluster Management
   - Containers
