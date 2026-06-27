@@ -60,11 +60,11 @@ apis:
         url: json-structure/rancher-project-structure.json
       - type: JSONStructure
         url: json-structure/rancher-node-structure.json
-      - type: Example
+      - type: Examples
         url: examples/rancher-list-clusters-example.json
-      - type: Example
+      - type: Examples
         url: examples/rancher-create-cluster-example.json
-      - type: Example
+      - type: Examples
         url: examples/rancher-list-projects-example.json
       - type: SpectralRules
         url: rules/rancher-rules.yml
@@ -83,7 +83,7 @@ common:
     url: https://www.suse.com/c/rancher/
   - type: Pricing
     url: https://www.rancher.com/pricing
-  - type: SignUp
+  - type: Signup
     url: https://www.rancher.com/quick-start
   - type: Support
     url: https://www.rancher.com/support-maintenance-terms
