@@ -69,6 +69,10 @@ apis:
       - type: SpectralRules
         url: rules/rancher-rules.yml
 common:
+  - type: DomainSecurity
+    url: security/rancher-domain-security.yml
+  - type: Authentication
+    url: authentication/rancher-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/rancher
   - type: Website
