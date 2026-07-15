@@ -69,6 +69,8 @@ apis:
       - type: SpectralRules
         url: rules/rancher-rules.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/rancher-agentic-access.yml
   - type: DomainSecurity
     url: security/rancher-domain-security.yml
   - type: Authentication
