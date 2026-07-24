@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Rancher Management Apps Clusters API
+  description: The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It enables automation of cluster lifecycle, project and namespace management, user and group access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. The API is reached through the Rancher server URL and authenticated with bearer tokens generated from the Rancher UI or via the login endpoint.
+  version: '1.0'
+  contact:
+    name: Rancher Support
+    url: https://www.rancher.com/support-maintenance-terms
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://{rancher_host}/v3
+  description: Rancher v3 management API
+  variables:
+    rancher_host:
+      default: rancher.example.com
+      description: Rancher server hostname.
+- url: https://{rancher_host}/k8s/clusters/{cluster_id}
+  description: Rancher Kubernetes API proxy for a specific downstream cluster
+  variables:
+    rancher_host:
+      default: rancher.example.com
+    cluster_id:
+      default: c-m-xxxxxxxx
+tags:
+- name: Clusters
+  description: Downstream Kubernetes clusters managed by Rancher.
+paths:
+  /clusters:
+    get:
+      tags:
+      - Clusters
+      summary: List clusters
+      operationId: listClusters
+      responses:
+        '200':
+          description: A collection of clusters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterCollection'
+      security:
+      - BearerAuth: []
+    post:
+      tags:
+      - Clusters
+      summary: Create a cluster
+      operationId: createCluster
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cluster'
+      responses:
+        '201':
+          description: Cluster created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+      security:
+      - BearerAuth: []
+  /clusters/{id}:
+    get:
+      tags:
+      - Clusters
+      summary: Retrieve a cluster
+      operationId: getCluster
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A cluster.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+      security:
+      - BearerAuth: []
+    delete:
+      tags:
+      - Clusters
+      summary: Delete a cluster
+      operationId: deleteCluster
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Cluster deleted.
+      security:
+      - BearerAuth: []
+components:
+  schemas:
+    Cluster:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        kubernetesVersion:
+          type: string
+        provider:
+          type: string
+        state:
+          type: string
+    ClusterCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cluster'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: token-XXXXX:secret
+externalDocs:
+  description: Rancher API Quick Start
+  url: https://ranchermanager.docs.rancher.com/api/quickstart

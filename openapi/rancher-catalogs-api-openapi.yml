@@ -1,0 +1,49 @@
+openapi: 3.1.0
+info:
+  title: Rancher Management Apps Catalogs API
+  description: The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It enables automation of cluster lifecycle, project and namespace management, user and group access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. The API is reached through the Rancher server URL and authenticated with bearer tokens generated from the Rancher UI or via the login endpoint.
+  version: '1.0'
+  contact:
+    name: Rancher Support
+    url: https://www.rancher.com/support-maintenance-terms
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://{rancher_host}/v3
+  description: Rancher v3 management API
+  variables:
+    rancher_host:
+      default: rancher.example.com
+      description: Rancher server hostname.
+- url: https://{rancher_host}/k8s/clusters/{cluster_id}
+  description: Rancher Kubernetes API proxy for a specific downstream cluster
+  variables:
+    rancher_host:
+      default: rancher.example.com
+    cluster_id:
+      default: c-m-xxxxxxxx
+tags:
+- name: Catalogs
+  description: Helm chart catalogs registered with Rancher.
+paths:
+  /catalogs:
+    get:
+      tags:
+      - Catalogs
+      summary: List catalogs
+      operationId: listCatalogs
+      responses:
+        '200':
+          description: A collection of catalogs.
+      security:
+      - BearerAuth: []
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: token-XXXXX:secret
+externalDocs:
+  description: Rancher API Quick Start
+  url: https://ranchermanager.docs.rancher.com/api/quickstart
