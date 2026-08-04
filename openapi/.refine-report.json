@@ -1,0 +1,28 @@
+{
+  "provider": "rancher",
+  "sources": [
+    "rancher-apps-api-openapi.yml",
+    "rancher-catalogs-api-openapi.yml",
+    "rancher-clusters-api-openapi.yml",
+    "rancher-nodes-api-openapi.yml",
+    "rancher-projects-api-openapi.yml",
+    "rancher-roles-api-openapi.yml",
+    "rancher-tokens-api-openapi.yml",
+    "rancher-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "rancher-apps-api-openapi.yml",
+    "rancher-catalogs-api-openapi.yml",
+    "rancher-clusters-api-openapi.yml",
+    "rancher-nodes-api-openapi.yml",
+    "rancher-projects-api-openapi.yml",
+    "rancher-roles-api-openapi.yml",
+    "rancher-tokens-api-openapi.yml",
+    "rancher-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
