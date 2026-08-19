@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rancher Management Apps Tokens API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{rancher_host}/v3/tokens",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List tokens"
+        },
+        {
+          "info": {
+            "name": "Create a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{rancher_host}/v3/tokens",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

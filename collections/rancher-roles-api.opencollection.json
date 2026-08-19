@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rancher Management Apps Roles API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List role templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{rancher_host}/v3/roleTemplates",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List role templates"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
