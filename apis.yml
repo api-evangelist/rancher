@@ -25,6 +25,14 @@ tags:
   - Containers
   - Kubernetes
   - Multi-Cluster
+  - Open-Source
+  - SUSE
+  - Platform Engineering
+tags_raw:
+  - Cluster Management
+  - Containers
+  - Kubernetes
+  - Multi-Cluster
   - Open Source
   - SUSE
   - Platform Engineering
@@ -39,6 +47,8 @@ apis:
   humanURL: https://ranchermanager.docs.rancher.com/api/quickstart
   baseURL: https://{rancher_host}/v3
   tags:
+  - Application
+  tags_raw:
   - Apps
   properties:
   - type: OpenAPI
@@ -115,6 +125,8 @@ apis:
   humanURL: https://ranchermanager.docs.rancher.com/api/quickstart
   baseURL: https://{rancher_host}/v3
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
@@ -191,6 +203,8 @@ apis:
   humanURL: https://ranchermanager.docs.rancher.com/api/quickstart
   baseURL: https://{rancher_host}/v3
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -305,6 +319,8 @@ apis:
   humanURL: https://ranchermanager.docs.rancher.com/api/quickstart
   baseURL: https://{rancher_host}/v3
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
