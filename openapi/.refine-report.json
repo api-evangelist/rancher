@@ -1,14 +1,7 @@
 {
   "provider": "rancher",
   "sources": [
-    "rancher-apps-api-openapi.yml",
-    "rancher-catalogs-api-openapi.yml",
-    "rancher-clusters-api-openapi.yml",
-    "rancher-nodes-api-openapi.yml",
-    "rancher-projects-api-openapi.yml",
-    "rancher-roles-api-openapi.yml",
-    "rancher-tokens-api-openapi.yml",
-    "rancher-users-api-openapi.yml"
+    "_original/rancher-management-api-openapi.yml"
   ],
   "outputs": [
     "rancher-apps-api-openapi.yml",
@@ -23,6 +16,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "rancher-management-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "rancher-apps-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rancher-catalogs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rancher-clusters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rancher-nodes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rancher-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rancher-roles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rancher-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rancher-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
