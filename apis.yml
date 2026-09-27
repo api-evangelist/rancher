@@ -40,7 +40,7 @@ tags:
   - Containers
   - Kubernetes
   - Multi-Cluster
-  - Open-Source
+  - Open Source
   - SUSE
   - Platform Engineering
 tags_raw:
@@ -51,6 +51,7 @@ tags_raw:
   - Open Source
   - SUSE
   - Platform Engineering
+  - Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/rancher/refs/heads/main/apis.yml
 created: '2026-03-26'
 modified: '2026-05-19'
