@@ -101,6 +101,15 @@ paths:
       - BearerAuth: []
 components:
   schemas:
+    ClusterCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cluster'
     Cluster:
       type: object
       properties:
@@ -116,15 +125,6 @@ components:
           type: string
         state:
           type: string
-    ClusterCollection:
-      type: object
-      properties:
-        type:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Cluster'
   securitySchemes:
     BearerAuth:
       type: http
