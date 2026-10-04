@@ -374,6 +374,9 @@ apis:
   - type: SpectralRules
     url: rules/rancher-rules.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/rancher-capability-edges.yml
+    name: Rancher Business Capability Map
   - type: IssueTracker
     url: https://github.com/rancher/rancher/issues
   - type: Releases

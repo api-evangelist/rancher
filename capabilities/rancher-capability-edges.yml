@@ -1,0 +1,53 @@
+slug: rancher
+provider: Rancher
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Clusters
+  spec_file: rancher-clusters-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: POST /clusters  createCluster  Create a cluster; DELETE /clusters/{id}  deleteCluster — "automation
+    of cluster lifecycle"
+  reason: Full CRUD over Kubernetes clusters is provisioning and lifecycle of compute infrastructure,
+    squarely IT Infrastructure Management for this container platform vendor.
+- tag: Nodes
+  spec_file: rancher-nodes-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: 'GET /nodes  listNodes  List nodes — schemas: NodeCollection, Node'
+  reason: Nodes are the compute hosts backing Kubernetes clusters; inventorying them is infrastructure
+    management, not a business-domain capability.
+- tag: Roles
+  spec_file: rancher-roles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: GET /roleTemplates listRoleTemplates "List role templates"; description cites "user and group
+    access control"
+  reason: Role templates define RBAC permissions across clusters/projects, which is access management
+    rather than HR roles. Thin surface (one read operation) keeps confidence below the top band.
+- tag: Users
+  spec_file: rancher-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: GET /users listUsers; schemas User, UserCollection; "user and group access control"
+  reason: Users here are platform principals governed for access control across clusters, i.e. IAM rather
+    than HR employee records. Single list operation limits confidence.
