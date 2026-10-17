@@ -60,6 +60,15 @@ paths:
       - BearerAuth: []
 components:
   schemas:
+    ProjectCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
     Project:
       type: object
       properties:
@@ -71,15 +80,6 @@ components:
           type: string
         description:
           type: string
-    ProjectCollection:
-      type: object
-      properties:
-        type:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
   securitySchemes:
     BearerAuth:
       type: http
