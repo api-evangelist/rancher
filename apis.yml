@@ -374,6 +374,8 @@ apis:
   - type: SpectralRules
     url: rules/rancher-rules.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/rancher/overview
   - type: Plans
     url: plans/rancher-plans-pricing.yml
   - type: RateLimits
