@@ -1,133 +1,307 @@
 {
+  "info": {
+    "_postman_id": "6d850f9f-5027-4404-a587-88d1dfda328e",
+    "name": "Rancher Management Clusters API",
+    "description": "The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It enables automation of cluster lifecycle, project and namespace management, user and group access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. The API is reached through the Rancher server URL and authenticated with bearer tokens generated from the Rancher UI or via the login endpoint.\n\nContact Support:\n Name: Rancher Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:35:39.000Z",
+    "updatedAt": "2026-10-22T02:35:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6d850f9f-5027-4404-a587-88d1dfda328e"
+  },
   "item": [
     {
-      "id": "92ce9311-13fd-4c00-8056-8dfee8710cb7",
-      "name": "Clusters",
-      "description": {
-        "content": "Downstream Kubernetes clusters managed by Rancher.",
-        "type": "text/plain"
-      },
+      "name": "clusters",
       "item": [
         {
-          "id": "5fe712ed-1990-437c-838d-139c2b219c33",
-          "name": "List clusters",
-          "request": {
-            "name": "List clusters",
-            "description": {},
-            "url": {
-              "path": [
-                "clusters"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Retrieve a cluster",
+              "id": "f849d13b-0137-46f2-ab41-ff3f182dd42c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/clusters/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clusters",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "dee140b8-3075-4044-af19-5f74b00e2366",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
                 {
-                  "description": "Rancher server hostname.",
-                  "type": "any",
-                  "value": "{{rancher_host}}",
-                  "key": "rancher_host"
+                  "id": "9ad2ff49-56c7-4ebf-a6d8-11c59b298a0d",
+                  "name": "A cluster.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clusters/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clusters",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"kubernetesVersion\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"state\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:35:39.000Z",
+                  "updatedAt": "2026-10-22T02:35:39.000Z",
+                  "uid": "35240-9ad2ff49-56c7-4ebf-a6d8-11c59b298a0d"
+                }
+              ],
+              "createdAt": "2026-10-22T02:35:39.000Z",
+              "updatedAt": "2026-10-22T02:35:39.000Z",
+              "uid": "35240-f849d13b-0137-46f2-ab41-ff3f182dd42c"
+            },
+            {
+              "name": "Delete a cluster",
+              "id": "62ce374d-f25a-4ecc-8c1f-6e418517515d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/clusters/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clusters",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "54c79cc2-41c5-4b36-9a2b-42bb8e31a2b8",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9efe5801-338c-4192-8aef-d46523982e75",
+                  "name": "Cluster deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clusters/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clusters",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:35:39.000Z",
+                  "updatedAt": "2026-10-22T02:35:39.000Z",
+                  "uid": "35240-9efe5801-338c-4192-8aef-d46523982e75"
+                }
+              ],
+              "createdAt": "2026-10-22T02:35:39.000Z",
+              "updatedAt": "2026-10-22T02:35:39.000Z",
+              "uid": "35240-62ce374d-f25a-4ecc-8c1f-6e418517515d"
+            }
+          ],
+          "id": "b73049b4-fce9-4aa2-b981-032e8b4e5093",
+          "createdAt": "2026-10-22T02:35:39.000Z",
+          "updatedAt": "2026-10-22T02:35:39.000Z",
+          "uid": "35240-b73049b4-fce9-4aa2-b981-032e8b4e5093"
+        },
+        {
+          "name": "List clusters",
+          "id": "aaa7ed7f-22e9-4cb7-9ccf-86472e404156",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
                 }
               ]
             },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
+            "url": {
+              "raw": "{{baseUrl}}/clusters",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clusters"
               ]
             }
           },
           "response": [
             {
-              "id": "2a8d354d-90a4-40b3-bd7a-de8fd147e89b",
+              "id": "20830c8e-6840-4254-8dc0-7bddad0a0af0",
               "name": "A collection of clusters.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "clusters"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Rancher server hostname.",
-                      "type": "any",
-                      "value": "{{rancher_host}}",
-                      "key": "rancher_host"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/clusters",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clusters"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"kubernetesVersion\": \"string\",\n      \"provider\": \"string\",\n      \"state\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"kubernetesVersion\": \"string\",\n      \"provider\": \"string\",\n      \"state\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"kubernetesVersion\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"kubernetesVersion\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"state\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:35:39.000Z",
+              "updatedAt": "2026-10-22T02:35:39.000Z",
+              "uid": "35240-20830c8e-6840-4254-8dc0-7bddad0a0af0"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:35:39.000Z",
+          "updatedAt": "2026-10-22T02:35:39.000Z",
+          "uid": "35240-aaa7ed7f-22e9-4cb7-9ccf-86472e404156"
         },
         {
-          "id": "13015942-00b3-46cd-ab25-91ec8a4cd0e9",
           "name": "Create a cluster",
+          "id": "f5eb1d5e-fa4c-47c5-bf1f-13fd3a872ef0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Create a cluster",
-            "description": {},
-            "url": {
-              "path": [
-                "clusters"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
+            "auth": {
+              "type": "bearer",
+              "bearer": [
                 {
-                  "description": "Rancher server hostname.",
-                  "type": "any",
-                  "value": "{{rancher_host}}",
-                  "key": "rancher_host"
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
                 }
               ]
             },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -138,335 +312,103 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"kubernetesVersion\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"state\": \"<string>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/clusters",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clusters"
+              ]
             }
           },
           "response": [
             {
-              "id": "1a6a16ca-e1ea-433b-9dbf-bc61e00a04fc",
+              "id": "f1b4330f-a75f-4b21-a6a8-49ad9ae1737b",
               "name": "Cluster created.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "clusters"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Rancher server hostname.",
-                      "type": "any",
-                      "value": "{{rancher_host}}",
-                      "key": "rancher_host"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"kubernetesVersion\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"state\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/clusters",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clusters"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"kubernetesVersion\": \"string\",\n  \"provider\": \"string\",\n  \"state\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"kubernetesVersion\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"state\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:35:39.000Z",
+              "updatedAt": "2026-10-22T02:35:39.000Z",
+              "uid": "35240-f1b4330f-a75f-4b21-a6a8-49ad9ae1737b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1cffa67b-367e-4f41-a7f1-96cd19f55699",
-          "name": "Retrieve a cluster",
-          "request": {
-            "name": "Retrieve a cluster",
-            "description": {},
-            "url": {
-              "path": [
-                "clusters",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "description": "Rancher server hostname.",
-                  "type": "any",
-                  "value": "{{rancher_host}}",
-                  "key": "rancher_host"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "e41e2bb4-5b24-4d71-a022-caf11e7f7ed2",
-              "name": "A cluster.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "clusters",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": "Rancher server hostname.",
-                      "type": "any",
-                      "value": "{{rancher_host}}",
-                      "key": "rancher_host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"kubernetesVersion\": \"string\",\n  \"provider\": \"string\",\n  \"state\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c3fa6060-c0ee-4c7f-8ed4-a99f83b908ed",
-          "name": "Delete a cluster",
-          "request": {
-            "name": "Delete a cluster",
-            "description": {},
-            "url": {
-              "path": [
-                "clusters",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "description": "Rancher server hostname.",
-                  "type": "any",
-                  "value": "{{rancher_host}}",
-                  "key": "rancher_host"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "353e5a0c-9c69-48d7-a7ac-f3c27a305648",
-              "name": "Cluster deleted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "clusters",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": "Rancher server hostname.",
-                      "type": "any",
-                      "value": "{{rancher_host}}",
-                      "key": "rancher_host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:35:39.000Z",
+          "updatedAt": "2026-10-22T02:35:39.000Z",
+          "uid": "35240-f5eb1d5e-fa4c-47c5-bf1f-13fd3a872ef0"
         }
       ],
-      "event": []
+      "id": "769dc292-55e8-4ebf-82ba-d3f3c873c01c",
+      "createdAt": "2026-10-22T02:35:39.000Z",
+      "updatedAt": "2026-10-22T02:35:39.000Z",
+      "uid": "35240-769dc292-55e8-4ebf-82ba-d3f3c873c01c"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "description": {
-        "content": "Rancher server hostname.",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "rancher.example.com",
-      "key": "rancher_host"
+      "key": "rancher_host",
+      "value": "rancher.example.com"
     },
     {
-      "type": "string",
-      "value": "https://{{rancher_host}}/v3",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://{{rancher_host}}/v3"
     }
-  ],
-  "info": {
-    "_postman_id": "a006ffc7-b9fb-4d93-b2a9-7420835b8aaa",
-    "name": "Rancher Management Apps Clusters API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It enables automation of cluster lifecycle, project and namespace management, user and group access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. The API is reached through the Rancher server URL and authenticated with bearer tokens generated from the Rancher UI or via the login endpoint.\n\nContact Support:\n Name: Rancher Support",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

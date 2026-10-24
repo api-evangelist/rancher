@@ -1,128 +1,101 @@
 {
+  "info": {
+    "_postman_id": "c231bfe1-8a56-4b9d-9b49-8a8a412f5918",
+    "name": "Rancher Management Roles API",
+    "description": "The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It enables automation of cluster lifecycle, project and namespace management, user and group access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. The API is reached through the Rancher server URL and authenticated with bearer tokens generated from the Rancher UI or via the login endpoint.\n\nContact Support:\n Name: Rancher Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:35:56.000Z",
+    "updatedAt": "2026-10-22T02:35:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c231bfe1-8a56-4b9d-9b49-8a8a412f5918"
+  },
   "item": [
     {
-      "id": "2a2c6a78-97f8-42b8-96f6-850424d38ec9",
-      "name": "Roles",
-      "description": {
-        "content": "Role templates and role bindings defining access policies.",
-        "type": "text/plain"
-      },
+      "name": "roleTemplates",
       "item": [
         {
-          "id": "be297e18-6c9a-44b1-ab57-79226790cff8",
           "name": "List role templates",
+          "id": "449823a9-1158-482d-ae91-b90e35ff1dd1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List role templates",
-            "description": {},
-            "url": {
-              "path": [
-                "roleTemplates"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Rancher server hostname.",
-                  "type": "any",
-                  "value": "{{rancher_host}}",
-                  "key": "rancher_host"
-                }
-              ]
-            },
-            "method": "GET",
             "auth": {
               "type": "bearer",
               "bearer": [
                 {
                   "key": "token",
-                  "value": "{{bearerToken}}"
+                  "value": "{{bearerToken}}",
+                  "type": "string"
                 }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/roleTemplates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "roleTemplates"
               ]
             }
           },
           "response": [
             {
-              "id": "df2f7e08-214e-43a8-85d4-01cc3c7aac3f",
+              "id": "7d0038e5-902f-4fee-ade7-66db16925b24",
               "name": "A collection of role templates.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "roleTemplates"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Rancher server hostname.",
-                      "type": "any",
-                      "value": "{{rancher_host}}",
-                      "key": "rancher_host"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/roleTemplates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roleTemplates"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:35:57.000Z",
+              "updatedAt": "2026-10-22T02:35:57.000Z",
+              "uid": "35240-7d0038e5-902f-4fee-ade7-66db16925b24"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:35:57.000Z",
+          "updatedAt": "2026-10-22T02:35:57.000Z",
+          "uid": "35240-449823a9-1158-482d-ae91-b90e35ff1dd1"
         }
       ],
-      "event": []
+      "id": "2d8da0bc-2526-485b-a575-659d39db127e",
+      "createdAt": "2026-10-22T02:35:57.000Z",
+      "updatedAt": "2026-10-22T02:35:57.000Z",
+      "uid": "35240-2d8da0bc-2526-485b-a575-659d39db127e"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "description": {
-        "content": "Rancher server hostname.",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "rancher.example.com",
-      "key": "rancher_host"
+      "key": "rancher_host",
+      "value": "rancher.example.com"
     },
     {
-      "type": "string",
-      "value": "https://{{rancher_host}}/v3",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://{{rancher_host}}/v3"
     }
-  ],
-  "info": {
-    "_postman_id": "6b7190ff-dba2-43f8-812f-5dd5a7ac9fbf",
-    "name": "Rancher Management Apps Roles API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It enables automation of cluster lifecycle, project and namespace management, user and group access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. The API is reached through the Rancher server URL and authenticated with bearer tokens generated from the Rancher UI or via the login endpoint.\n\nContact Support:\n Name: Rancher Support",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

@@ -1,128 +1,101 @@
 {
+  "info": {
+    "_postman_id": "e40afaee-76fd-40b3-acfb-bb737ddc99d8",
+    "name": "Rancher Management Apps API",
+    "description": "The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It enables automation of cluster lifecycle, project and namespace management, user and group access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. The API is reached through the Rancher server URL and authenticated with bearer tokens generated from the Rancher UI or via the login endpoint.\n\nContact Support:\n Name: Rancher Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:35:28.000Z",
+    "updatedAt": "2026-10-22T02:35:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e40afaee-76fd-40b3-acfb-bb737ddc99d8"
+  },
   "item": [
     {
-      "id": "b3ce9b65-d871-4b27-9baf-579f40fef28c",
-      "name": "Apps",
-      "description": {
-        "content": "Helm-based applications deployed through Rancher.",
-        "type": "text/plain"
-      },
+      "name": "apps",
       "item": [
         {
-          "id": "230a3b28-b54e-4528-8b69-fa1f4e511c09",
           "name": "List apps",
+          "id": "239a6b93-cfd1-40fe-b8a8-3f3872ca61b1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List apps",
-            "description": {},
-            "url": {
-              "path": [
-                "apps"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Rancher server hostname.",
-                  "type": "any",
-                  "value": "{{rancher_host}}",
-                  "key": "rancher_host"
-                }
-              ]
-            },
-            "method": "GET",
             "auth": {
               "type": "bearer",
               "bearer": [
                 {
                   "key": "token",
-                  "value": "{{bearerToken}}"
+                  "value": "{{bearerToken}}",
+                  "type": "string"
                 }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/apps",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "apps"
               ]
             }
           },
           "response": [
             {
-              "id": "be1fbd72-ff5c-4ac7-a679-62ea98f2082a",
+              "id": "a7c9e38f-8000-43f3-9bd1-741b0e063f20",
               "name": "A collection of apps.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "apps"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Rancher server hostname.",
-                      "type": "any",
-                      "value": "{{rancher_host}}",
-                      "key": "rancher_host"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/apps",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:35:29.000Z",
+              "updatedAt": "2026-10-22T02:35:29.000Z",
+              "uid": "35240-a7c9e38f-8000-43f3-9bd1-741b0e063f20"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:35:29.000Z",
+          "updatedAt": "2026-10-22T02:35:29.000Z",
+          "uid": "35240-239a6b93-cfd1-40fe-b8a8-3f3872ca61b1"
         }
       ],
-      "event": []
+      "id": "92db1abf-a58d-4b90-81e5-fd8a268f863a",
+      "createdAt": "2026-10-22T02:35:29.000Z",
+      "updatedAt": "2026-10-22T02:35:29.000Z",
+      "uid": "35240-92db1abf-a58d-4b90-81e5-fd8a268f863a"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "description": {
-        "content": "Rancher server hostname.",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "rancher.example.com",
-      "key": "rancher_host"
+      "key": "rancher_host",
+      "value": "rancher.example.com"
     },
     {
-      "type": "string",
-      "value": "https://{{rancher_host}}/v3",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://{{rancher_host}}/v3"
     }
-  ],
-  "info": {
-    "_postman_id": "bb8e9b05-fd08-4d72-b501-884a2814d1cf",
-    "name": "Rancher Management Apps API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It enables automation of cluster lifecycle, project and namespace management, user and group access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. The API is reached through the Rancher server URL and authenticated with bearer tokens generated from the Rancher UI or via the login endpoint.\n\nContact Support:\n Name: Rancher Support",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

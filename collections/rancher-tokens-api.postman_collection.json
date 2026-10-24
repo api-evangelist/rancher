@@ -1,215 +1,169 @@
 {
+  "info": {
+    "_postman_id": "ab29378e-b145-4e5b-9430-59fb7c2e0929",
+    "name": "Rancher Management Tokens API",
+    "description": "The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It enables automation of cluster lifecycle, project and namespace management, user and group access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. The API is reached through the Rancher server URL and authenticated with bearer tokens generated from the Rancher UI or via the login endpoint.\n\nContact Support:\n Name: Rancher Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:36:07.000Z",
+    "updatedAt": "2026-10-22T02:36:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ab29378e-b145-4e5b-9430-59fb7c2e0929"
+  },
   "item": [
     {
-      "id": "453306a0-6373-4d5d-b2c3-1951c8283faa",
-      "name": "Tokens",
-      "description": {
-        "content": "API tokens used to authenticate against the Rancher API.",
-        "type": "text/plain"
-      },
+      "name": "tokens",
       "item": [
         {
-          "id": "465b5591-ba3e-4ac0-8514-445b00955673",
           "name": "List tokens",
+          "id": "35439238-42b5-4a66-8998-c72973820fde",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List tokens",
-            "description": {},
-            "url": {
-              "path": [
-                "tokens"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
+            "auth": {
+              "type": "bearer",
+              "bearer": [
                 {
-                  "description": "Rancher server hostname.",
-                  "type": "any",
-                  "value": "{{rancher_host}}",
-                  "key": "rancher_host"
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
                 }
               ]
             },
             "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tokens",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tokens"
               ]
             }
           },
           "response": [
             {
-              "id": "518304d6-ef0e-4050-b4a7-6053a0211570",
+              "id": "10b855a6-d1ac-469d-ace9-1b99aee5d14e",
               "name": "A collection of tokens.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "tokens"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Rancher server hostname.",
-                      "type": "any",
-                      "value": "{{rancher_host}}",
-                      "key": "rancher_host"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/tokens",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tokens"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:36:08.000Z",
+              "updatedAt": "2026-10-22T02:36:08.000Z",
+              "uid": "35240-10b855a6-d1ac-469d-ace9-1b99aee5d14e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:36:08.000Z",
+          "updatedAt": "2026-10-22T02:36:08.000Z",
+          "uid": "35240-35439238-42b5-4a66-8998-c72973820fde"
         },
         {
-          "id": "bcfde66c-7c70-4cd8-b53b-19febf7ba754",
           "name": "Create a token",
+          "id": "8abb5b93-3bad-4239-a7cc-359db9d1d6d4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Create a token",
-            "description": {},
-            "url": {
-              "path": [
-                "tokens"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
+            "auth": {
+              "type": "bearer",
+              "bearer": [
                 {
-                  "description": "Rancher server hostname.",
-                  "type": "any",
-                  "value": "{{rancher_host}}",
-                  "key": "rancher_host"
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
                 }
               ]
             },
             "method": "POST",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tokens",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tokens"
               ]
             }
           },
           "response": [
             {
-              "id": "322d71a4-ccfb-4214-be42-d7011906e5f4",
+              "id": "5f8c59a3-7441-4da0-b7ea-c0273c6f5c07",
               "name": "Token created.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "tokens"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Rancher server hostname.",
-                      "type": "any",
-                      "value": "{{rancher_host}}",
-                      "key": "rancher_host"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/tokens",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tokens"
+                  ]
+                }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:36:08.000Z",
+              "updatedAt": "2026-10-22T02:36:08.000Z",
+              "uid": "35240-5f8c59a3-7441-4da0-b7ea-c0273c6f5c07"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:36:08.000Z",
+          "updatedAt": "2026-10-22T02:36:08.000Z",
+          "uid": "35240-8abb5b93-3bad-4239-a7cc-359db9d1d6d4"
         }
       ],
-      "event": []
+      "id": "715c950d-d0ed-411d-9f6b-013b3e990eb9",
+      "createdAt": "2026-10-22T02:36:07.000Z",
+      "updatedAt": "2026-10-22T02:36:07.000Z",
+      "uid": "35240-715c950d-d0ed-411d-9f6b-013b3e990eb9"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "description": {
-        "content": "Rancher server hostname.",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "rancher.example.com",
-      "key": "rancher_host"
+      "key": "rancher_host",
+      "value": "rancher.example.com"
     },
     {
-      "type": "string",
-      "value": "https://{{rancher_host}}/v3",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://{{rancher_host}}/v3"
     }
-  ],
-  "info": {
-    "_postman_id": "f37d9c02-7e04-4cbe-b6c5-d33ab51bdb23",
-    "name": "Rancher Management Apps Tokens API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Rancher Management API exposes Rancher's multi-cluster Kubernetes management capabilities as Kubernetes-style REST resources. It enables automation of cluster lifecycle, project and namespace management, user and group access control, catalog and app management, and integration of Rancher into CI/CD and platform engineering workflows. The API is reached through the Rancher server URL and authenticated with bearer tokens generated from the Rancher UI or via the login endpoint.\n\nContact Support:\n Name: Rancher Support",
-      "type": "text/plain"
-    }
-  }
+  ]
 }
